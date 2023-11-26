@@ -1,3 +1,5 @@
+import { Toaster } from 'sonner'
+
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -41,6 +43,8 @@ export default function RootLayout({
             disableTransitionOnChange
             storageKey="anotai-theme-2"
           >
+            <Toaster position="bottom-center" />
+
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
