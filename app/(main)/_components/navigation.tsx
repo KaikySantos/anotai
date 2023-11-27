@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils"
 import { UserItem } from "./user-item"
 import { Item } from "./item"
 import { toast } from "sonner"
+import { DocumentList } from "./document-list"
 
 export const Navigation = () => {
   const pathname = usePathname()
@@ -145,11 +146,7 @@ export const Navigation = () => {
           />
         </div>
         <div className="mt-4">
-          {documents?.map((document) => (
-            <p key={document._id}>
-              {document.title}
-            </p>
-          ))}
+          <DocumentList />
         </div>
         <div
           onMouseDown={handleMouseDown}
