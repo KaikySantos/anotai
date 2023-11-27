@@ -7,6 +7,7 @@ import React, { ElementRef, useEffect, useRef, useState } from "react"
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react"
 import { useMediaQuery } from "usehooks-ts"
 import { cn } from "@/lib/utils"
+import { useSearch } from "@/hooks/user-search"
 
 import { UserItem } from "./user-item"
 import { Item } from "./item"
@@ -16,6 +17,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { TrashBox } from "./trash-box"
 
 export const Navigation = () => {
+  const search = useSearch()
+
   const pathname = usePathname()
   const isMobile = useMediaQuery("(max-width: 768px)")
   const documents = useQuery(api.documents.get)
@@ -134,7 +137,7 @@ export const Navigation = () => {
             label="Search"
             icon={Search}
             isSearch
-            onClick={() => {}}
+            onClick={search.onOpen}
           />
           <Item
             label="Settings"
