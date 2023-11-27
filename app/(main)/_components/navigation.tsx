@@ -15,9 +15,11 @@ import { toast } from "sonner"
 import { DocumentList } from "./document-list"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { TrashBox } from "./trash-box"
+import { useSettings } from "@/hooks/use-settings"
 
 export const Navigation = () => {
   const search = useSearch()
+  const settings = useSettings()
 
   const pathname = usePathname()
   const isMobile = useMediaQuery("(max-width: 768px)")
@@ -142,7 +144,7 @@ export const Navigation = () => {
           <Item
             label="Settings"
             icon={Settings}
-            onClick={() => {}}
+            onClick={settings.onOpen}
           />
           <Item
             onClick={handleCreate}
